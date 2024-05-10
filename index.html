@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+
+        function fizzbuzz() {
+            $('#entry').html("");
+            let num = Number($("#numbox").val());
+            if (!Number.isInteger(num) || num > 1000) {
+                num = 0;
+                $("#entry").append("Please enter a valid number between 1 and 1,000.")
+            }
+            for (let i = 1; i < num + 1; i++) {
+                let value;
+
+                if (i % 3 == 0 && i % 5 == 0) {
+                    value = "Fizzbuzz"
+                } else if (i % 3 == 0) {
+                    value = "Fizz"
+                } else if (i % 5 == 0) {
+                    value = "Buzz"
+                } else {
+                    value = i;
+                }
+            
+                value = "<p>" + (value) + "</p>"
+                $("#entry").append(value)
+            }
+
+        }
+
+    </script>
+    <style>
+        p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="text" name="numbox" id="numbox">
+    <input type="button" name="button" onclick="fizzbuzz()" value="EXECUTE!">
+    <div id="entry"></div>
+
+</body>
+
+</html>
